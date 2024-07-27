@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./componennts/App";
+import App from "./componennts/App/App";
+import "modern-normalize";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

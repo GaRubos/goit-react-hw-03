@@ -1,51 +1,48 @@
-import { ErrorMessage, Field, Formik, Form } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-
 import s from "./ContactForm.module.css";
 
-const ContactForm = () => {
+const ContactForm = ({ onSubmit }) => {
+  const formSchema = Yup.object({
+    name: Yup.string()
+      .required("This field is required")
+      .min(3, "Name must be more than 3 charts!")
+      .max(50, " Name must be lesa than 50 charts!"),
+    number: Yup.string()
+      .required("This field is required")
+      .min(3, "Number must be more than 3 numbers!")
+      .max(50, "Woow... it is to match !"),
+  });
+
   const initialValues = {
     name: "",
-    phone: "",
+    number: "",
   };
 
-  const handleSubmit = (values, actions) => {
-    console.log(values);
+  const handleSubmit = (data, actions) => {
+    onSubmit(data);
     actions.resetForm();
   };
 
-  const registerSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
-    phone: Yup.number()
-      .required("This field is required!")
-      .min(9, "min 9 symbol"),
-    // .max(10, "max 10 symbol"),
-  });
-
   return (
-    <div className={s.formWrapper}>
+    <div className={s.formwrapper}>
       <Formik
-        validationSchema={registerSchema}
         initialValues={initialValues}
         onSubmit={handleSubmit}
+        validationSchema={formSchema}
       >
         <Form className={s.form}>
           <label className={s.label}>
-            <span>Name:</span>
-            <Field name="name" type="text" className={s.input} />
+            <span>Name</span>
+            <Field name="name" className={s.input} />
             <ErrorMessage name="name" component="span" className={s.error} />
           </label>
-
           <label className={s.label}>
-            <span>Phone:</span>
-            <Field name="phone" type="number" className={s.input} />
-            <ErrorMessage name="phone" component="span" className={s.error} />
+            <span>Number</span>
+            <Field name="number" className={s.input} />
+            <ErrorMessage name="number" component="span" className={s.error} />
           </label>
-
-          <button type="submit">Add Contact</button>
+          <button type="submit">Add contact</button>
         </Form>
       </Formik>
     </div>

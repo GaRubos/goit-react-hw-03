@@ -1,0 +1,17 @@
+.wrapper {
+  width: 300px;
+  border: 2px solid rgb(181, 180, 180);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  color: rgb(255, 4, 4);
+  padding: 10px;
+}
+
+.icon {
+  margin-right: 5px;
+}

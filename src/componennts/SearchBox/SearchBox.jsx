@@ -1,13 +1,24 @@
-import React from "react";
+import s from "./SearchBox.module.css";
 
-const SearchBox = ({ value, onChange }) => {
+const SearchBox = ({ onSearch }) => {
+  const handleChange = (e) => {
+    const { value } = e.target;
+
+    onSearch(value);
+  };
+
   return (
-    <input
-      type="text"
-      value={value}
-      onChange={onChange}
-      placeholder="Search contacts"
-    />
+    <div>
+      <label className={s.label}>
+        <span className={s.title}>Find contact by name</span>
+        <input
+          onChange={handleChange}
+          type="text"
+          name="search"
+          className={s.input}
+        ></input>
+      </label>
+    </div>
   );
 };
 

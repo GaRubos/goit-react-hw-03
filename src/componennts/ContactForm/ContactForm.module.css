@@ -1,39 +1,37 @@
-.formWrapper {
-  /* min-height: 100vh; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.formwrapper {
+  margin: 20px auto;
+  width: 350px;
 }
-
 .form {
   display: flex;
   gap: 15px;
-  width: 40vw;
   flex-direction: column;
-  padding: 20px 40px;
-  box-shadow: 0 0 8px 8px rgb(207, 208, 207);
+  padding: 28px 40px;
+  border: 2px solid rgb(152, 152, 152);
+  border-radius: 5px;
   & button {
-    background-color: teal;
-    color: white;
-    padding: 10px 12px;
-    border: none;
+    background-color: rgb(86, 137, 86);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    box-shadow: 2px 2px 2px 4px rgb(221, 214, 214, 0.3);
   }
 }
 
+.error {
+  color: rgb(136, 255, 0);
+  font-weight: 600;
+}
 .label {
   display: flex;
   gap: 5px;
   flex-direction: column;
   & span {
     font-weight: bold;
+    color: black;
   }
 }
 .input {
-  padding: 5px;
-  border-radius: 8px;
-}
-
-.error {
-  color: red;
-  font-weight: 500;
+  padding: 6px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 4px rgb(221, 214, 214, 0.3);
 }
