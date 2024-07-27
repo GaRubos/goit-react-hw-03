@@ -18,7 +18,7 @@
 }
 
 .error {
-  color: rgb(136, 255, 0);
+  color: rgb(255, 0, 0);
   font-weight: 600;
 }
 .label {
@@ -27,7 +27,6 @@
   flex-direction: column;
   & span {
     font-weight: bold;
-    color: black;
   }
 }
 .input {
